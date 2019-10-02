@@ -1,7 +1,4 @@
-
-
-
- /**
+       /**
     *  File name     :  CalendarStuff.java
     *  Purpose       :  Provides a class with supporting methods for CountTheDays.java program
     *  Author        :  <your name here>
@@ -270,3 +267,4 @@
        }
        } 
        
+
