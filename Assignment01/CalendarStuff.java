@@ -1,4 +1,4 @@
-       /**
+             /**
     *  File name     :  CalendarStuff.java
     *  Purpose       :  Provides a class with supporting methods for CountTheDays.java program
     *  Author        :  <your name here>
@@ -195,6 +195,7 @@
       long dayCount = 0;
       if (compareDate( month1, day1, year1, month2, day2, year2) == 1) {
         // this block is for the years and the isLeapYear()
+     
         while (year1 > year2){
           if (isLeapYear(year2)) {
             dayCount += 366;
@@ -202,30 +203,41 @@
             dayCount += 365;
           } 
           year2++;           
-        }
+        }  //System.out.println(dayCount);
         if (month1 > month2) {
           dayCount += daysInMonth(month2, year2) - day2;
+
+         // System.out.println(dayCount);
+
            while (month2 < 13){
               dayCount += daysInMonth(month2, year2);
               month2++;
            }
         }
         if (day1 > day2){
+         // System.out.println("What is Day 1 and Day 2");
            while (day1 != day2){
               dayCount++;
+System.out.println(dayCount);
+
               day2 += 1;
            }
 
         }else{
            while(day1 != day2){        
              dayCount++;
+
+             System.out.println(dayCount);
            day1 += 1;
 
         }
       }
 
        }else if (compareDate( month1, day1, year1, month2, day2, year2) == -1){
+        
+        
             while (year1 < year2){
+              
             if (isLeapYear(year1)) {
               dayCount += 366;
             } else {
@@ -233,7 +245,10 @@
             } 
             year1++;           
           }
+          System.out.println(dayCount);
+
        if (month2 > month1) {
+      
           dayCount += daysInMonth(month1, year1) - day1;
            while (month1 < 13){
 
@@ -241,30 +256,34 @@
               month1++;
            }
             
-       }else {
-           dayCount += daysInMonth(month2, year2) - day2;
-           while(month2 < 13){
-              
-              dayCount += daysInMonth(month2, year2);
-              month2++;
-           }
         }
+       
+        }
+        System.out.println(dayCount);
+
        if (day2 > day1){
+        
+
           while (day1 != day2){
+             
              dayCount++;
+           
              day1 += 1;
+              //System.out.println( dayCount);
           }
 
        }else if (day1 != day2) {
+        
              dayCount++;
+             
           day2 += 1;
-
-       }
-       }else {
-         return 0;
-       }
-       return 0;
-       }
-       } 
        
 
+       } 
+       System.out.println(dayCount);
+     
+       return dayCount;
+       }
+       }
+        
+       
