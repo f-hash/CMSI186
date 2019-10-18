@@ -19,6 +19,8 @@
 
   import java.text.DecimalFormat;
 
+  // This is a Clock class that runs on a 12 hour parameter
+
   public class Clock {
     /**
      *  Class field definintions go here
@@ -71,7 +73,7 @@
           System.exit(1);
        }
         if (targetAngle > MAXIMUM_DEGREE_VALUE || targetAngle <= 0.0){
-             // throw new NumberFormatException("Please enter an Number less than 360");
+             
             return INVALID_ARGUMENT_VALUE;
              
        }
@@ -94,10 +96,7 @@
      *         to take a VERY LONG TIME to complete!
      */
      public double validateTimeSliceArg( String argValue ) {
-      // if ( targetAngle < Math.abs(1800)){
-      //   this.timeSlice = targetAngle;
-      //   return this.timeSlice; 
-      // }
+    
       try{ 
         System.out.println("Time slice changed");
         this.timeSlice = Double.parseDouble(argValue);
