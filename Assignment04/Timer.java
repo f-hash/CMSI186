@@ -89,10 +89,10 @@ public class Timer {
 
       Timer timer = new Timer();
 
-      System.out.println("Testing with a timeSlice of 15 with 15 ticks.");
-      timeSlice = 15;
+      System.out.println("Testing with a timeSlice of 1 with 1 ticks.");
+      timeSlice = 1;
       double numSecs = 0;
-      for(int i = 0; i < 15; i++) {
+      for(int i = 0; i < 1; i++) {
         System.out.println(timer.toString());
         timer.tick();
       }
