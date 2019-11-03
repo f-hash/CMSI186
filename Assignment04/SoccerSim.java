@@ -6,7 +6,7 @@
 // //    *  Description   :  This class provides a bunch of methods which may be useful for the SoccerSim class
 // //    *                   for Homework 4,  Includes the following:
 // //    *
-// //    *  Notes         :  None right now.  I'll add some as they occur.
+// //    *  Notes         :  This program takes in arguments from Ball class and creates a soccer field
 // //    *  Warnings      :  None
 // //    *  Exceptions    :  IllegalArgumentException when the input arguments are "hinky"
 // //    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
