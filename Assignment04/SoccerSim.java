@@ -19,7 +19,7 @@
 
 
 
-
+  //This is the SoccerSim class
 public class SoccerSim {
 public double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
 private final double FIELD_WIDTH = 300;
@@ -35,7 +35,8 @@ private Ball[] ballsArr;
 public double timeSlice;
 public boolean collision = false;
 
-
+    
+          //This is the SoccerSim timer
 public SoccerSim (String args[]) {
 numberofballs = (int)(args.length / 4);
 if (args.length % 4 == 1) {
@@ -60,7 +61,8 @@ ballsArr[h] = new Ball(xPosition, yPosition, xVelocity, yVelocity, this.timeSlic
 h++;
 }
 }
-
+  
+          //This method is to validate the location
 public void validateLocation() {
 for(Ball ball : ballsArr) {
 if (ball.getXLocation() > SECTION_1_WIDTH || ball.getXLocation() < SECTION_3_WIDTH) {
@@ -73,7 +75,8 @@ throw new IllegalArgumentException();
 }
 }
 }
-
+ 
+          //This method is for validating the velocity
 public void validateVelocity() {
 for(Ball ball : ballsArr) {
 if (ball.getXVelocity() > SECTION_1_WIDTH || ball.getXVelocity() < SECTION_3_WIDTH) {
@@ -84,7 +87,8 @@ throw new IllegalArgumentException();
 }
 }
 }
-
+    
+          //This method is if the balls are at rest
 public boolean Rest() {
 for (Ball ball : ballsArr){
 if (!ball.still()) {
@@ -94,7 +98,8 @@ return false;
 return true;
   }
 
-
+  
+          //This method is to test the collisions 
 public boolean Collisions() {
 int count = 1;
 for(Ball ball : ballsArr) {
@@ -116,7 +121,7 @@ return true;
 return false;
 }
 
-
+           //This method is for the strings 
 public String toString() {
 int count = 1;
 String result = "";
@@ -130,7 +135,7 @@ if(Rest()) {
     }
 return result;
 }
-
+        //This method tests the main and make sures all other methods from above works properly 
 public static void main(String[] args) {
 SoccerSim soccersim = new SoccerSim(args);
 Timer timer = new Timer(soccersim.timeSlice);
