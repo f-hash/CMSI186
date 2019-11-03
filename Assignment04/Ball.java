@@ -1,4 +1,4 @@
-        // //  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      // //  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       // //    *  File name     :  Ball.java
       // //    *  Purpose       :  Provides a class defining methods for the Ball class
       // //    *  @author       :  Faith A Akosile
@@ -44,27 +44,34 @@
       System.exit(1); 
         }
       }
+          //This method is for the x location
+      public double getXLocation() {
 
-      public double getXLocation () {
          return xball;
        }
-
+          
+          //This method is for the y location
       public double getYLocation() {
          return yball; 
       }
-
+         
+          //This method  is for the x velocity 
       public double getXVelocity (){
          return xballVelo; 
       }
-
+         
+          //This method is for the y velocity
       public double getYVelocity() {
          return yballVelo; 
-      }
+      } 
 
+            
+          //This method is for checking when the balls are still
       public boolean still() {
           return Math.abs(xballVelo) <= .083 && Math.abs(yballVelo) <= .083;
       }
-
+             
+          //This method is for the timeSlice
       public Ball (String args[]) { if (args.length % 4 == 1) {
          timeSlice = Double.parseDouble(args[args.length-1]); 
       }
@@ -75,7 +82,8 @@
             throw new IllegalArgumentException(); 
         }
       }
-
+           
+          //This method is to move the ball, and it solves the velocity with friction
       public void moveBall() {
       System.out.println("timeSlice =" + timeSlice);
             xball += (xballVelo);
@@ -89,13 +97,13 @@
             yballVelo = 0; 
        }
       }
-
+          //This method takes care of the decimal format and the strings 
       public String toString() {
        DecimalFormat df = new DecimalFormat("#.##");
          return "Position: " + "[" + df.format(xball) + ", " + df.format(yball) + "]" + " Velocity: " + "[" + df.format(xballVelo) + ", " + df.format(yballVelo) +"]"; 
       }
 
-
+         //This main method tests my methods from above.
       public static void main(String args[]) {
       System.out.println( "\nBALL CLASS TESTER PROGRAM\n"); 
       System.out.println( " Creating a new ball... " );
@@ -120,27 +128,6 @@
       catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); 
    }
       try { System.out.println( (1.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
-   }
-      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
-       } 
-         try { System.out.println( (3.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
-   }
-      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
-       } 
-         
-         try { System.out.println( (5.0 == ball.xball) ? " move() for timeSlice working as intended" : " move() not working" ); 
-   }
-      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
-       } 
-         try { System.out.println( (9.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
-   }
-      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
-       } 
-         try { System.out.println( (10.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
-   }
-      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
-       } 
-         try { System.out.println( (12.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
    }
       catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
        } 
@@ -399,4 +386,6 @@
 
 
       }
+
+
 
