@@ -3,7 +3,7 @@
 // //    *  Purpose       :  Provides a class defining methods for the Ball class
 // //    *  @author       :  Faith A Akosile
 // //    *  Date written  :  2019-11-04
-// //    *  Description   :  This class provides a bunch of methods which may be useful for the SoccerSim class
+// //    *  Description   :  This class provides a bunch of methods which may be useful for the Timer class
 // //    *                   for Homework 4,  Includes the following:
 // //    *
 // //    *  Notes         :  This program creates the timer for SoccerSim
@@ -37,15 +37,16 @@ public class Timer {
     this.timeSlice = timeSlice;
   }
 
+   // This creates the tick method 
   public double tick() {
     totalSeconds += timeSlice;
       return totalSeconds;
   }
-
+    // This creates the total seconds method 
   public static double getTotalSeconds () {
     return totalSeconds;
   }
-
+     //This method validates the timeSlice
   public double validateTimeSliceArg( String argValue ) throws NumberFormatException {
       double validateTimeSlice = Double.parseDouble(argValue);
       if (validateTimeSlice < 1800 && validateTimeSlice > 0){
@@ -53,24 +54,24 @@ public class Timer {
       }
       throw new NumberFormatException();
   }
-
+     //This method calculates for the hours
   public static int getHours() {
   int hours = (int)(totalSeconds / 3600);
   return hours;
   }
-
+      //This method calculates for the minutes
   public static int getMins() {
   int remainder = (int) (totalSeconds % 3600);
     int mins = (int) (remainder / 60);
   return mins;
   }
-
+       //This method calculates for the seconds 
   public static double getSecs() {
     int remainder = (int) (totalSeconds % 3600);
   double secs = (double) (remainder % 60.0);
   return secs;
   }
-
+         //This method calculates for the string
   public String toString() {
         int hours = (int)(totalSeconds / 3600);
         int remainder = (int) (totalSeconds % 3600);
@@ -84,7 +85,7 @@ public class Timer {
      
       return (hh + ":" + mm + ":" + zz);
   }
-
+            //This method tests for the timer
   public static void main(String[] args) {
 
       Timer timer = new Timer();
