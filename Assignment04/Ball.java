@@ -131,6 +131,26 @@
    }
       catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
        } 
+ try { System.out.println( (10.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
+   }
+      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
+       } 
+ try { System.out.println( (60.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
+   }
+      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
+       } 
+ try { System.out.println( (100.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
+   }
+      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
+       } 
+ try { System.out.println( (20.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
+   }
+      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
+       } 
+ try { System.out.println( (500.0 == ball.timeSlice) ? " move() for timeSlice working as intended" : " move() not working" ); 
+   }
+      catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() );
+       } 
 
        System.out.println( "\nSTILL TESTER\n"); 
       System.out.println( " Creating a STILL TEST ... " );
