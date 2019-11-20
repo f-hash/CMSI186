@@ -1,3 +1,21 @@
+// //  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      // //    *  File name     :  Riemann.java
+      // //    *  Purpose       :  Provides a class defining methods for the Riemann class
+      // //    *  @author       :  Faith A Akosile
+      // //    *  Date written  :  2019-11-20
+      // //    *  Description   :  This class provides a bunch of methods which may be useful for the Riemann class
+      // //    *                   for Homework 5,  Includes the following:
+      // //    *
+      // //    *  Notes         :  None right now.  I'll add some as they occur.
+      // //    *  Warnings      :  None
+      // //    *  Exceptions    :  IllegalArgumentException when the input arguments are "hinky"
+      // //    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      // //    *  Revision History
+      // //    *  ---------------
+      // //    *            Rev      Date     Modified by:  Reason for change/modification
+      // //    *           -----  ----------  ------------  -----------------------------------------------------------
+      // //    *  @version 1.0.0  2019-11-20  Faith Akosile  Initial writing and release
+      // //    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 public class Riemann {
 
@@ -49,14 +67,14 @@ public class Riemann {
 		
     }
 
-   /**Calculates the calcpoly.*/
+   /**Calculates the calcpoly(double x, double [] coeffs) method with x as the parameters and the array of coeffects as the parameters.*/
 	public static double calcPoly(double x, double [] coeffs){
-		System.out.println("In CALCPOLY, x is " + x + ", coeffs is " + coeffs);
+		
 		double sum = 0;
 		for(int i = 0; i < coeffs.length; i++){
 			sum += (coeffs[i] * Math.pow(x, i));
 		}
-		System.out.println("CALCPOLY height result is " + sum);
+		
 		return sum;
 		
 	}
@@ -72,25 +90,21 @@ public class Riemann {
 		double currentResultSum = 0.0;
 		double lowerbound;
 		int numOfRects = 1;
-	    System.out.println(currentResultSum); 
-        System.out.println("BREAK");
-
-
 
 		while(diffPercentage > percentage){
-			 System.out.println("WHILE LOOP: currentResultSum is " + currentResultSum); 
+			  
 			lastResultSum = currentResultSum;
 			currentResultSum = 0.0;
 			currentRectWidth = rectWidth(lowerBound, upperBound, numOfRects);
 			currentX = lowerBound + currentRectWidth/2;
-			 // System.out.println(currentResultSum); 
+			 
 				
 			for(int i = 0; i < numOfRects; i ++){
 				currentRectHeight = calcPoly(currentX, coeffs);
 				currentResultSum += (currentRectHeight * currentRectWidth);
 				currentX += currentRectWidth;
 			}
-			   	  System.out.println("After forloop: " + currentResultSum); 
+			   
 			diffPercentage = calcDiffPercent(currentResultSum, lastResultSum);
 			numOfRects++;
 		
@@ -127,8 +141,8 @@ public class Riemann {
 
      }
 
-
-       public static double [] getCoeffs(String[]args){
+   /**Creates the getCoeffs(String[]args)  method and function and it declares the string array.*/
+      public static double [] getCoeffs(String[]args){
        	double[] coeffs;
        	boolean lastArgPercent = (args.length > 0 && args[args.length - 1].contains("%"));
        	int lastCoeff;
@@ -184,11 +198,13 @@ public class Riemann {
    	     }
 
    	 }
-
+ 
+ /**does an approxmation for the values.*/
     private static boolean isCloseTo(double x, double y) {
     	return Math.abs(x - y) < 0.001;
     }
 
+ /**this is the runMyTests() method.*/
  	private static void runMyTests() {
  		runArgumentTests();
  		runDiffPercentTests();
@@ -197,7 +213,8 @@ public class Riemann {
  		runSinTests();
  		
  	}
-
+ 
+ /**this is the runArgumentTests() method.*/
  	private static void runArgumentTests() {
 		String[] args = new String[]{"poly", "5.0", "1.0", "2.0", "3.0", "0.0", "3.0", "0.01%"};
 		System.out.println("lower bound works:  " + (getlowerBound(args) == 0.0));
@@ -262,6 +279,7 @@ public class Riemann {
 		
 
 }
+   /**this is the runDiffPercentTests() method.*/
     private static void runDiffPercentTests() {
     	System.out.println(" \n This is the runDiffPercentTests");
         System.out.println(calcDiffPercent(10, 5) == 1.0);
@@ -276,6 +294,7 @@ public class Riemann {
         System.out.println(calcDiffPercent(16, 8) == 1.0);
     }        
          
+     /**this is the  runRectWidthTests() method.*/
     private static void runRectWidthTests() {
     	System.out.println(" \n This is the runRectWidthTests");
         System.out.println(rectWidth(1, 5, 1) == 4.0);
@@ -292,12 +311,24 @@ public class Riemann {
       
     }
 
+    /**this is the runPolyTests() method.*/
     private static void runPolyTests() {
-    // 	 System.out.println("\n This is the poly test");
-    // 	  System.out.println(intergratePoly(1, 2, 3, -1, 1, 0.1) == 0.0);
+    	System.out.println("\n This is the poly test");
+    	System.out.println(intergratePoly(new double[]{1, 2, 3}, -1, 1, 0.1) == 3.777777777777777);
+    	System.out.println(intergratePoly(new double[]{2, 1, 6}, -1, 1, 0.8) == 7.0);
+    	System.out.println(intergratePoly(new double[]{7, 2, 3}, -1, 1, 0.6) == 15.5);
+    	System.out.println(intergratePoly(new double[]{8, 2, 9}, -1, 1, 0.1) == 21.33333333333333);
+    	System.out.println(intergratePoly(new double[]{5, 2, 7}, -1, 1, 0.5) == 13.5);
+    	System.out.println(intergratePoly(new double[]{8, 2, 8}, -1, 1, 0.3) == 20.0);
+    	System.out.println(intergratePoly(new double[]{5, 2, 5}, -1, 1, 0.5) == 12.5);
+    	System.out.println(intergratePoly(new double[]{3, 2, 4}, -1, 1, 0.9) == 8.0);
+    	System.out.println(intergratePoly(new double[]{1, 2, 2}, -1, 1, 0.13) == 3.1851851851851842);
+    	System.out.println(intergratePoly(new double[]{8, 2, 1}, -1, 1, 0.19) == 16.5);
+    	System.out.println(intergratePoly(new double[]{8, 2, 3}, -1, 1, 0.20) == 17.5);
+
     	
      }
-
+ /**this is the runSinTests() method.*/
     private static void runSinTests() {
       System.out.println("\n This is the runSinTests");
       System.out.println(integrateSin(-1, 1, 0.1) == 0.0);
@@ -315,3 +346,4 @@ public class Riemann {
     
 
 }
+
