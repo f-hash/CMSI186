@@ -46,15 +46,15 @@ public class BrobBigInt {
         System.out.println(equals(1, 1) == true);
         System.out.println(equals(2, 2) == true);
    
-    System.out.println( "\n  Test  Brobint constant ZERO is okay: " );
+    System.out.println( "\n  Test  Brobint constant ZERO is correct: " );
       try { System.out.println( "      expecting: true\n         and got: " + new BrobInt("63225336").ZERO.equals( new BrobInt("0") ) ); }
       catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
 
-      System.out.println( "\n  Test Brobint constant ONE is okay: " );
+      System.out.println( "\n  Test Brobint constant ONE is correct: " );
       try { System.out.println( "      expecting: true\n        and got: " + new BrobInt("63225336").ONE.equals( new BrobInt("1") ) ); }
       catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
 
-      System.out.println( "\n   Test Brobint constant TEN is okay: " );
+      System.out.println( "\n   Test Brobint constant TEN is correct: " );
       try { System.out.println( "      expecting: true\n        and got: " + new BrobInt("63225336").TEN.equals( new BrobInt("10") ) ); }
       catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
 
