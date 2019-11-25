@@ -3,19 +3,19 @@ import java.math.BigInteger;
 public class BrobBigInt {
    
     public static void main (String[] args) {
-    	BigInteger a = new BigInteger("203984");
-    	BigInteger b = new BigInteger("293847");
-    	System.out.println("Adding "+ b.toString() + " + " + a.toString() + " = " + (a.add(b)).toString() );
-    	System.out.println("Subtraction"+ b.toString() + " - " + a.toString() + " = " + (a.subract(b)).toString() );
+      BigInteger a = new BigInteger("203984");
+      BigInteger b = new BigInteger("293847");
+      System.out.println("Adding "+ b.toString() + " + " + a.toString() + " = " + (a.add(b)).toString() );
+      System.out.println("Subtraction"+ b.toString() + " - " + a.toString() + " = " + (a.subract(b)).toString() );
         System.out.println("Dividing "+ b.toString() + " / " + a.toString() + " = " + (b.divide(a)).toString() );
         System.out.println("Multiply "+ b.toString() + " * " + a.toString() + " = " + (b.multiply(a)).toString() );
         System.out.println("Remainder "+ b.toString() + " / " + a.toString() + " = " + (b.remainder(a)).toString() );
 
 
-	    System.out.println( "\n  Hello, from the BrobInt program!!\n" );
-	    System.out.println( "\n  Run your tests from the BrobIntTester...\n" );
-	    BrobInt b = new BrobInt("12");
-	    System.out.println(b.toString());
+      System.out.println( "\n  Hello, from the BrobInt program!!\n" );
+      System.out.println( "\n  Run your tests from the BrobIntTester...\n" );
+      BrobInt b = new BrobInt("12");
+      System.out.println(b.toString());
    
         System.out.println(" \n This is the Addition test");
         System.out.println(addBrob(10, 5) == 15.0);
@@ -49,14 +49,35 @@ public class BrobBigInt {
     System.out.println( "\n  Test  Brobint constant ZERO is correct: " );
       try { System.out.println( "      expecting: true\n         and got: " + new BrobInt("63225336").ZERO.equals( new BrobInt("0") ) ); }
       catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
+       System.out.println( "\n  Test  Brobint constant ZERO is correct: " );
+      try { System.out.println( "      expecting: true\n         and got: " + new BrobInt("63225377").ZERO.equals( new BrobInt("0") ) ); }
+      catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
+       System.out.println( "\n  Test  Brobint constant ZERO is correct: " );
+      try { System.out.println( "      expecting: true\n         and got: " + new BrobInt("63225836").ZERO.equals( new BrobInt("0") ) ); }
+      catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
 
       System.out.println( "\n  Test Brobint constant ONE is correct: " );
       try { System.out.println( "      expecting: true\n        and got: " + new BrobInt("63225336").ONE.equals( new BrobInt("1") ) ); }
+      catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
+      System.out.println( "\n  Test Brobint constant ONE is correct: " );
+      try { System.out.println( "      expecting: true\n        and got: " + new BrobInt("63225377").ONE.equals( new BrobInt("1") ) ); }
+      catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
+        System.out.println( "\n  Test Brobint constant ONE is correct: " );
+      try { System.out.println( "      expecting: true\n        and got: " + new BrobInt("63225836").ONE.equals( new BrobInt("1") ) ); }
       catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
 
       System.out.println( "\n   Test Brobint constant TEN is correct: " );
       try { System.out.println( "      expecting: true\n        and got: " + new BrobInt("63225336").TEN.equals( new BrobInt("10") ) ); }
       catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
+            System.out.println( "\n   Test Brobint constant TEN is correct: " );
+      try { System.out.println( "      expecting: true\n        and got: " + new BrobInt("63225377").TEN.equals( new BrobInt("10") ) ); }
+      catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
+
+      System.out.println( "\n   Test Brobint constant TEN is correct: " );
+      try { System.out.println( "      expecting: true\n        and got: " + new BrobInt("63225836").TEN.equals( new BrobInt("10") ) ); }
+      catch( UnsupportedOperationException uoe ) { System.out.println( "        Exception thrown:  "  ); }
+
+    
 
 
         
