@@ -37,10 +37,14 @@ public class Riemann {
 	    	return;
 	    }
 
+
+
 	    double lowerBound = getlowerBound(args);
 	    double upperBound = getupperBound(args);
 	    double percent = getPercent(args);
 	    double result = 0.0;
+
+	 
 
 		switch (args[0]) {
 	        case "poly":
@@ -58,10 +62,10 @@ public class Riemann {
 			    }
 		 	 // System.out.println("Not enough arguments for Sin \n" + "Please put a java Riemann function name, additional descriptors, lowerBound, upperBound, and percentStop");
 			    result = integrateSin(lowerBound, upperBound, percent);
-			    break;
-		   
-		}
-	}
+     		    break;
+		   		}
+		   	   
+	}      
 
    	/**Calculates the percentage difference between two values.*/
 	public static double calcDiffPercent(double value1, double value2){
@@ -104,6 +108,7 @@ public class Riemann {
         if (coeffs == null || coeffs.length == 0) {
             throw new IllegalArgumentException("No coefficients supplied");
         }
+       
 
 		while(diffPercentage > percentage){
 			  
@@ -118,12 +123,13 @@ public class Riemann {
 				currentResultSum += (currentRectHeight * currentRectWidth);
 				currentX += currentRectWidth;
 			}
+
 			   
 			diffPercentage = calcDiffPercent(currentResultSum, lastResultSum);
 			numOfRects++;
-		
-
+		   		
 		}
+		System.out.println("It took " + numOfRects + " iterations." + "this is the number of diffPercentage is  " + Math.ceil(diffPercentage));
 	    System.out.println("The Poly Riemann is : " + currentResultSum);
 		return currentResultSum;
 	}
@@ -131,6 +137,9 @@ public class Riemann {
 
     /**Calculates the integrateSin() method by declaring the double lowerBound, double upperBound, double percentage.*/
     public static double integrateSin(double lowerBound, double upperBound, double percentage){
+    	if(upperBound < lowerBound){
+        	throw new IllegalArgumentException("Please make sure upper bound is greater than lowerBound");
+        }
      	double currentX;
 		double lastResultSum;
 		double currentRectWidth;
@@ -143,14 +152,17 @@ public class Riemann {
 			lastResultSum = currentResultSum;
 			currentResultSum = 0.0;
 			currentRectWidth = rectWidth( lowerBound, upperBound, numOfRects);
-			currentX = lowerBound;
+			currentX = lowerBound + currentRectWidth/2;
 			for(int i = 0; i <= numOfRects; i++){
 				currentRectHeight = Math.sin(currentX);
 				currentResultSum += (currentRectHeight * currentRectWidth);
 				currentX += currentRectWidth;
+
 			}
 			diffPercentage = calcDiffPercent(currentResultSum, lastResultSum);
 		}
+
+		System.out.println("It took " + numOfRects + " iterations.");
            System.out.print("The Sin Riemann is : " + currentResultSum);
 		 	return currentResultSum;
 
@@ -229,6 +241,7 @@ public class Riemann {
  
  /**this is the runArgumentTests() method.*/
  	private static void runArgumentTests() {
+ 		System.out.println("RUNNING POLY AND SIN AND CALCULATING PERCENTAGE DIFFERENCE");
 		String[] args = new String[]{"poly", "5.0", "1.0", "2.0", "3.0", "0.0", "3.0", "0.01%"};
 		System.out.println("lower bound works:  " + (getlowerBound(args) == 0.0));
 		System.out.println("upper bound works:  " + (getupperBound(args) == 3.0));
@@ -345,15 +358,15 @@ public class Riemann {
     private static void runSinTests() {
       System.out.println("\n This is the runSinTests");
       System.out.println((integrateSin(-1, 1, 0.1)));
-      System.out.println(isCloseTo(integrateSin(0, Math.PI, 0.001), 1.990));
-      System.out.println(isCloseTo(integrateSin(1, 2, 0.001), 0.9846044024597911));
-      System.out.println(isCloseTo(integrateSin(2, 4, 0.001), 0.2434699031125554));
-      System.out.println(isCloseTo(integrateSin(6, 8, 0.001), 1.1334782766484381 ));
-      System.out.println(isCloseTo(integrateSin(10, 12, 0.001), -2.080584235440508));
-      System.out.println(isCloseTo(integrateSin(8, 4, 0.001),0.09371949376694455 ));
-      System.out.println(isCloseTo(integrateSin(6, 1, 0.001), -0.528180647298377 ));
-      System.out.println(isCloseTo(integrateSin(7, 2, 0.001), -1.4718847696984345));
-      System.out.println(isCloseTo(integrateSin(0, 1, 0.001), 0.4732299433087055));
+      System.out.println((integrateSin(0, Math.PI, 0.001)));
+      System.out.println((integrateSin(1, 2, 0.001)));
+      System.out.println((integrateSin(2, 4, 0.001)));
+      System.out.println((integrateSin(6, 8, 0.001)));
+      System.out.println((integrateSin(10, 12, 0.001)));
+      System.out.println((integrateSin(4, 8, 0.001)));
+      System.out.println((integrateSin(1, 6, 0.001)));
+      System.out.println((integrateSin(2, 7, 0.001)));
+      System.out.println((integrateSin(0, 1, 0.001)));
     }   
 
     
