@@ -19,8 +19,13 @@
 
 public class Riemann {
 
-	/** Runs the main method by declaring a string array.*/
+	/** Runs the main method by declaring a string array. 
+	    This method also contains the method to check the lengths 
+	    it throws an expection when the arguments are out of bounds 
+	    when they are less than four
+	**/
 	public static void main(String[] args) {
+		// System.out.println("Welcome to Riemann Progam! This ");
 	   	 	
 	    boolean lastArgPercent = (args.length > 0 && args[args.length-1].contains("%"));
 	    if (args.length == 0 || args[0].equals("runtests")) {
@@ -28,7 +33,7 @@ public class Riemann {
 	        return;
 	    }
 	    if ((args.length < 3 || (args.length < 4 && lastArgPercent))) {
-	    	System.out.println("Not enough arguments");
+	    	System.out.println("Not enough arguments " + "Please put a java Riemann function name, additional descriptors, lowerBound, upperBound, and percentStop");
 	    	return;
 	    }
 
@@ -39,14 +44,19 @@ public class Riemann {
 
 		switch (args[0]) {
 	        case "poly":
-	            if (args.length < 4 || (args.length < 5 && lastArgPercent)) {
-	    	        System.out.println("Not enough arguments");
+	            if ((args.length < 6) || args.length < 5 && lastArgPercent) { // WHAT SHOULD I DO IF THERE IS NO UPPER OR LOWER BOUND
+	    	        System.out.println("Not enough arguments for Poly \n" + "Please put a java Riemann function name, additional descriptors, lowerBound, upperBound, and percentStop");
 			  	    return;
 			    }
 			    double [] coeffs = getCoeffs(args);
 			    result = intergratePoly(coeffs, lowerBound, upperBound, percent);
 			    break;
 		 	case "sin":
+		 	if (args.length < 2) {
+	    	        System.out.println("Not enough arguments for Sin \n" + "Please put a java Riemann function name, additional descriptors, lowerBound, upperBound, and percentStop");
+			  	    return;
+			    }
+		 	 // System.out.println("Not enough arguments for Sin \n" + "Please put a java Riemann function name, additional descriptors, lowerBound, upperBound, and percentStop");
 			    result = integrateSin(lowerBound, upperBound, percent);
 			    break;
 		   
@@ -91,6 +101,10 @@ public class Riemann {
 		double lowerbound;
 		int numOfRects = 1;
 
+        if (coeffs == null || coeffs.length == 0) {
+            throw new IllegalArgumentException("No coefficients supplied");
+        }
+
 		while(diffPercentage > percentage){
 			  
 			lastResultSum = currentResultSum;
@@ -110,9 +124,10 @@ public class Riemann {
 		
 
 		}
-			  
+	    System.out.println("The Poly Riemann is : " + currentResultSum);
 		return currentResultSum;
 	}
+
 
     /**Calculates the integrateSin() method by declaring the double lowerBound, double upperBound, double percentage.*/
     public static double integrateSin(double lowerBound, double upperBound, double percentage){
@@ -136,7 +151,7 @@ public class Riemann {
 			}
 			diffPercentage = calcDiffPercent(currentResultSum, lastResultSum);
 		}
-
+           System.out.print("The Sin Riemann is : " + currentResultSum);
 		 	return currentResultSum;
 
      }
@@ -188,11 +203,9 @@ public class Riemann {
 	public static double getPercent(String args[]){
    	     boolean lastArgPercent = (args.length > 0 && args[ args.length - 1].contains("%"));
    	     if (lastArgPercent){
-   	     	System.out.println("PERCENT: " + Double.valueOf(args[args.length - 1].replace("%", "")) / 100);
+   	     	
    	     	return Double.valueOf(args[args.length - 1].replace("%", "")) / 100;
    	     }else{
-
-	 		System.out.println("PERCENT: " + 0.01);
 
    	     	return 0.01;
    	     }
@@ -314,7 +327,7 @@ public class Riemann {
     /**this is the runPolyTests() method.*/
     private static void runPolyTests() {
     	System.out.println("\n This is the poly test");
-    	System.out.println(intergratePoly(new double[]{1, 2, 3}, -1, 1, 0.1) == 3.777777777777777);
+    	System.out.println(intergratePoly(new double[]{1, 2, 3}, -1, 1, 0.01) == 3.9444444444444446);
     	System.out.println(intergratePoly(new double[]{2, 1, 6}, -1, 1, 0.8) == 7.0);
     	System.out.println(intergratePoly(new double[]{7, 2, 3}, -1, 1, 0.6) == 15.5);
     	System.out.println(intergratePoly(new double[]{8, 2, 9}, -1, 1, 0.1) == 21.33333333333333);
@@ -331,7 +344,7 @@ public class Riemann {
  /**this is the runSinTests() method.*/
     private static void runSinTests() {
       System.out.println("\n This is the runSinTests");
-      System.out.println(integrateSin(-1, 1, 0.1) == 0.0);
+      System.out.println((integrateSin(-1, 1, 0.1)));
       System.out.println(isCloseTo(integrateSin(0, Math.PI, 0.001), 1.990));
       System.out.println(isCloseTo(integrateSin(1, 2, 0.001), 0.9846044024597911));
       System.out.println(isCloseTo(integrateSin(2, 4, 0.001), 0.2434699031125554));
@@ -346,4 +359,3 @@ public class Riemann {
     
 
 }
-
