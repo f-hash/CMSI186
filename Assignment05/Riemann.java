@@ -241,7 +241,8 @@ public class Riemann {
  
  /**this is the runArgumentTests() method.*/
  	private static void runArgumentTests() {
- 		System.out.println("RUNNING POLY AND SIN AND CALCULATING PERCENTAGE DIFFERENCE");
+		System.out.println("WELCOME TO RIEMANN TESTS");
+ 		System.out.println("RUNNING POLY AND SIN AND CALCULATING PERCENTAGE DIFFERENCE TESTS");
 		String[] args = new String[]{"poly", "5.0", "1.0", "2.0", "3.0", "0.0", "3.0", "0.01%"};
 		System.out.println("lower bound works:  " + (getlowerBound(args) == 0.0));
 		System.out.println("upper bound works:  " + (getupperBound(args) == 3.0));
