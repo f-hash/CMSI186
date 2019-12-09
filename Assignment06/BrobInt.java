@@ -1052,10 +1052,6 @@ long03 = 12340;
 
 
 
-
-
-
-
     System.out.println("This  is for the BrobInt ZERO");
      
       System.out.println( "\n  Test  Brobint constant ZERO is correct: " );
