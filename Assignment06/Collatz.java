@@ -107,16 +107,16 @@ public class Collatz {
             BrobInt two_ = new BrobInt(two); 
             BrobInt three_ = new BrobInt(three);
 
-            BrobInt counter = new BrobInt(one);
+            BrobInt counter = BrobInt.ZERO;
             
             // We simply follow steps 
             // while we do not reach 1 
 
-            while (CollatzNumber.compareTo(one_) > 0 ){ 
+            while (CollatzNumber.compareTo(one_) > 0){ 
 
-                System.out.print("\n step = ");
-                System.out.println(counter.toString());
-                System.out.println(CollatzNumber.toString());                
+               // System.out.print("\n step = ");
+               // System.out.println(counter.toString());
+              //  System.out.println(CollatzNumber.toString());                
                 String r = CollatzNumber.toString();
                 int lastIndx = r.length();
                 
@@ -144,8 +144,9 @@ public class Collatz {
                 // Print 1 at the end
                 
                 counter = counter.add(one_);    
-                //System.out.println(r);              
+                           
             } 
+              System.out.println(counter);
 
         }
  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
