@@ -1,3 +1,21 @@
+// //  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      // //    *  File name     :  BrobInt.java
+      // //    *  Purpose       :  Provides a class defining methods for the BrobInt class
+      // //    *  @author       :  Faith A Akosile
+      // //    *  Date written  :  2019-12-08
+      // //    *  Description   :  This class provides a bunch of methods which may be useful for the BrobInt class
+      // //    *                   for Homework 6,  Includes the following:
+      // //    *
+      // //    *  Notes         :  None right now.  I'll add some as they occur.
+      // //    *  Warnings      :  None
+      // //    *  Exceptions    :  IllegalArgumentException when the input arguments are "hinky"
+      // //    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      // //    *  Revision History
+      // //    *  ---------------
+      // //    *            Rev      Date     Modified by:  Reason for change/modification
+      // //    *           -----  ----------  ------------  -----------------------------------------------------------
+      // //    *  @version 1.0.0  2019-12-08  Faith Akosile  Initial writing and release
+      // //    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import java.util.Arrays;
 
 public class BrobInt {
